@@ -16,6 +16,7 @@ Second approach is the best way but unfortunately **decodeAudioData** fails to d
 Available options are:
 
 *channels* - no of channels in opus data
+
 *fallback* - true/false. Whether it will use libopus as fallback or not. Default is true.
 
 Decoder fire an event *decode* whenever it completes decoding. Usually it decodes several opus packet at a time for better performance although it need to provide single opus packet into *decode* method.
