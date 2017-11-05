@@ -43,6 +43,7 @@ Decoder fire an event *decode* whenever it completes decoding. Usually it decode
 | destroy | -      |    Destroy the decoder instance and release the resources |
   
  **Compatibility**
+ 
    it is supported on:
 
  * Chrome for Android 34+
@@ -63,6 +64,7 @@ An example with simple node server script is available that include some raw opu
 then, visit *example/index.html* page through any webserver.
 
 **How to build?**
+
 A distribution version is available inside *dist* directory. However, if you need to build, you can do as follows:
 
  1. git clone https://github.com/samirkumardas/pcm-player.git
