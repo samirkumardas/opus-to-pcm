@@ -29,17 +29,18 @@ function PCMPlayer(channels, sampleRate) {
     this.flush = function() {
         if (!this.channels || !this.sampleRate || !this.samples.length) return;
         let bufferSource = this.audioCtx.createBufferSource(),
-            length = this.samples.length,
+            length = this.samples.length / this.channels,
             audioBuffer = this.audioCtx.createBuffer(this.channels, length, this.sampleRate),
             audioData,
             channel,
             offset,
             i,
-            decrement = 50;
+            decrement;
 
         for (channel = 0; channel < this.channels; channel++) {
             audioData = audioBuffer.getChannelData(channel);
             offset = channel;
+            decrement = 50;
             for (i = 0; i < length; i++) {
                 audioData[i] = this.samples[offset];
                 /* fadein */

@@ -168,6 +168,7 @@ export default class Ogg extends Event {
     }
     
     destroy() {
+        this.audioCtx.close();
         this.oggHeader = null;
         this.audioCtx = null;
         this.checksumTable = null;
