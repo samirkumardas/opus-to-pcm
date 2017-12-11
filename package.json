@@ -1,6 +1,6 @@
 {
   "name": "opus-to-pcm",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Decode raw opus packet to pcm without using any external library",
   "main": "dist/opus_to_pcm.js",
   "scripts": {
