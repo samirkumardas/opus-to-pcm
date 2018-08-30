@@ -73,7 +73,7 @@ export default class Ogg extends Event {
         pageDV.setUint8( 4, 0, true ); // Version
         pageDV.setUint8( 5, headerType, true ); // 1 = continuation, 2 = beginning of stream, 4 = end of stream
         pageDV.setUint32( 6, -1, true ); // granuale position -1 i.e single packet per page. storing into bytes.
-        pageDV.setUint32( 10, -1, true );
+        pageDV.setUint32( 10, 0, true );
         pageDV.setUint32( 14, this.serial, true ); // Bitstream serial number
         pageDV.setUint32( 18, this.pageIndex++, true ); // Page sequence number
         pageDV.setUint8( 26, 1, true ); // Number of segments in page, giving always 1 segment

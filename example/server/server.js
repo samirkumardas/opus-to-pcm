@@ -9,8 +9,11 @@ let packets = [],
     wss;
 
 fs.readdir(opusPackets, (err, files) => {
+    files = files.filter(file => file.indexOf('.txt') !== -1);
+    files = files.map(file => parseInt(file));
+    files.sort((a, b) => a - b);
     files.forEach(function(file) {
-        fs.readFile(opusPackets+file, (err, data) => {
+        fs.readFile(opusPackets + file + '.txt', (err, data) => {
             if (err) throw err;
             source.push(data);
             count++;

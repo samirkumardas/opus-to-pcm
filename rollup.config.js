@@ -10,7 +10,7 @@ export default {
     input: 'src/opus-to-pcm.js',
     output: {
         file: 'dist/opus_to_pcm.js',
-        format: 'iife',
+        format: 'umd',
         name: 'Decoder',
         sourcemap: false, //inline
     },
