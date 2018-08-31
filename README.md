@@ -11,21 +11,23 @@ Second approach is the best way but unfortunately **decodeAudioData** fails to d
 
 **How to use?**
 
-    var decoder = new Decoder.OpusToPCM(option);
+    var decoder = new OpusToPCM(option);
 
 Available options are:
 
 *channels* - no of channels in opus data
 
 *fallback* - true/false. Whether it will use libopus as fallback or not. Default is true.
+*libopusPath* - If fallback is true, you must provide libopus.js file path. A pre-built libopus file is available in dist directory
 
 Decoder fire an event *decode* whenever it completes decoding. Usually it decodes several opus packet at a time for better performance although it need to be provided single opus packet into *decode* method.
 
 **Complete example:**
 
-    var decoder = new Decoder.OpusToPCM({
+    var decoder = new OpusToPCM({
 	  channels: 1,
-	  fallback: true 
+	  fallback: true,
+      libopusPath: 'libopus/opus.min.js' /* a pre-built libopus file is available in dist directory */
     });
     decoder.on('decode', function(pcmData) {
          //do whatever you want to do with PCM data
@@ -33,6 +35,19 @@ Decoder fire an event *decode* whenever it completes decoding. Usually it decode
     
     // single opus packet and it is a typedArray
     decoder.decode(opus_packet); 
+
+** ES6 example:**
+    npn install opus-to-pcm --save;
+
+    import OpusToPCM from 'opus-to-pcm';
+
+    const decoder = new OpusToPCM({
+        channels: 1
+    });
+
+    decoder.on('decode', (pcmData)=> {
+        console.log(pcmData); /* PCM data */
+    }); 
 
 **Available Methods**
 
