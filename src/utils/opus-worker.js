@@ -1,8 +1,8 @@
 import Event from './event.js';
 export default class OpusWorker extends Event {
-    constructor(channels) {
+    constructor(channels, libopusPath) {
         super('worker');
-        this.worker = new Worker('libopus/opus.min.js');
+        this.worker = new Worker(libopusPath);
         this.worker.addEventListener('message', this.onMessage.bind(this));
         this.worker.postMessage({
             type: 'init',

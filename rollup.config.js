@@ -11,7 +11,7 @@ export default {
     output: {
         file: 'dist/opus_to_pcm.js',
         format: 'umd',
-        name: 'Decoder',
+        name: 'OpusToPCM',
         sourcemap: false, //inline
     },
     plugins: [
