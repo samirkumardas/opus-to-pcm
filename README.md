@@ -37,6 +37,7 @@ Decoder fire an event *decode* whenever it completes decoding. Usually it decode
     decoder.decode(opus_packet); 
 
 ** ES6 example:**
+
     npn install opus-to-pcm --save;
 
     import OpusToPCM from 'opus-to-pcm';
