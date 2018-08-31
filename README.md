@@ -38,7 +38,7 @@ Decoder fire an event *decode* whenever it completes decoding. Usually it decode
 
 ** ES6 example:**
 
-    npn install opus-to-pcm --save;
+    npm install opus-to-pcm --save;
 
     import OpusToPCM from 'opus-to-pcm';
 
