@@ -18,6 +18,7 @@ Available options are:
 *channels* - no of channels in opus data
 
 *fallback* - true/false. Whether it will use libopus as fallback or not. Default is true.
+
 *libopusPath* - If fallback is true, you must provide libopus.js file path. A pre-built libopus file is available in dist directory
 
 Decoder fire an event *decode* whenever it completes decoding. Usually it decodes several opus packet at a time for better performance although it need to be provided single opus packet into *decode* method.
