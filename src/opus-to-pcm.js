@@ -10,10 +10,10 @@ export default class OpusToPCM extends Event {
             channels: 1,
             fallback: true,
             libopusPath: 'libopus/opus.min.js',
-            nativeSuport: true,
+            nativeSupport: true,
             sampleRate: 24000
         };
-        console.log('defaults', defaults);
+
         options = Object.assign({}, defaults, options);
 
         if (nativeSupport && options.nativeSupport) {
