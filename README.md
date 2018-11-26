@@ -21,6 +21,10 @@ Available options are:
 
 *libopusPath* - If fallback is true, you must provide libopus.js file path. A pre-built libopus file is available in dist directory
 
+*nativeSupport* - true/false. If nativeSupport is false it will always decode from the provided provide libopus.js
+
+*sampleRate* - define the decoding sample rate it only works on the libopus.js
+
 Decoder fire an event *decode* whenever it completes decoding. Usually it decodes several opus packet at a time for better performance although it need to be provided single opus packet into *decode* method.
 
 **Complete example:**
