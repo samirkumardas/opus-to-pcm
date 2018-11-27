@@ -1,7 +1,9 @@
+import { appendByteArray } from './utils/utils.js';
 import Event from './utils/event.js';
 import Ogg from './utils/ogg.js';
 import OpusWorker from './utils/opus-worker.js';
 export default class OpusToPCM extends Event {
+
     constructor(options) {
         super('decoder');
         window.MediaSource = window.MediaSource || window.WebKitMediaSource;
@@ -9,17 +11,14 @@ export default class OpusToPCM extends Event {
         let defaults = {
             channels: 1,
             fallback: true,
-            libopusPath: 'libopus/opus.min.js',
-            nativeSupport: true,
-            sampleRate: 24000
+            libopusPath: 'libopus/opus.min.js'
         };
-
         options = Object.assign({}, defaults, options);
 
-        if (nativeSupport && options.nativeSupport) {
-            this.decoder = new Ogg(options.channels);
-        } else if (options.fallback) {
-            this.decoder = new OpusWorker(options.channels, options.libopusPath, options.sampleRate);
+        if (nativeSupport) {
+            this.decoder = new Ogg(options.channels); 
+        } else if(options.fallback) {
+            this.decoder = new OpusWorker(options.channels, options.libopusPath);
         } else {
             this.decoder = null;
         }
@@ -39,7 +38,7 @@ export default class OpusToPCM extends Event {
 
     decode(packet) {
         if (!this.decoder) {
-            throw 'opps! no decoder is found to decode';
+            throw ('opps! no decoder is found to decode');
         }
         this.decoder.decode(packet);
     }
