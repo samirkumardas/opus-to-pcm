@@ -1,21 +1,20 @@
 import Event from './event.js';
 export default class OpusWorker extends Event {
-    constructor(channels, libopusPath, sampleRate) {
+    constructor(channels, libopusPath) {
         super('worker');
         this.worker = new Worker(libopusPath);
-        this.sampleRate = sampleRate;
         this.worker.addEventListener('message', this.onMessage.bind(this));
         this.worker.postMessage({
             type: 'init',
             config: {
-                rate: sampleRate,
-                channels: channels
+                rate:24000,
+                channels:channels
             }
         });
     }
 
     getSampleRate() {
-        return this.sampleRate;
+        return 24000;
     }
 
     decode(packet) {
