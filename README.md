@@ -56,8 +56,15 @@ Decoder fire an event *decode* whenever it completes decoding. Usually it decode
 | Name        | Parameter           | Remark  |
 | ------------- |:-------------:| -----:|
 | getSampleRate      | - | It return output sample rate of the PCM data |
-| decode      | data TypedArray      |  Decode provided opus packet to PCM  |
+| decode      | data TypedArray      |  Input opus data to be decoded into PCM  |
 | destroy | -      |    Destroy the decoder instance and release the resources |
+
+It has one event named 'decode' that fires whenever the decoded PCM data is ready. It can be called as follows:
+
+ 	decoder.on('decode', (pcmData)=> {
+ 		console.log(pcmData); /* PCM data */
+ 	}); 
+
   
  **Compatibility**
  
